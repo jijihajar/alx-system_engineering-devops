@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -name "*.gif" -printf "%f\n" | rev | cut -c 5- | rev | sort -f
+find . -not -type d -name '*.gif' | sort -f -b | awk -F . '{print $1}' | xargs printf "%s\n"
